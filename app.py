@@ -11,6 +11,9 @@ movies_path = os.path.join(app.static_folder, 'data', 'movies.json')
 with open(movies_path,'r') as raw_json:
     json_info = json.load(raw_json)
 
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @app.route('/api/v1/movies', methods=['GET'])
 def movies_json():
